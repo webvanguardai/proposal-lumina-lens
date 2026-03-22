@@ -3,346 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Web Proposal — Lumina Lens Studio | Web Vanguard</title>
-  <meta name="description" content="Exclusive web design proposal for Lumina Lens Studio by Web Vanguard Dubai." />
+  <title>Lumina Lens Studio — Web Design Proposal · Web Vanguard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700;1,900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cyan: #00E5FF;
-      --cyan-dim: #00B8D9;
-      --black: #080808;
-      --dark: #111111;
-      --darker: #0a0a0a;
-      --border: #1e1e1e;
-      --text: #e5e5e5;
-      --muted: #666666;
+      --accent: #7B68EE;
+      --accent-rgb: 123, 104, 238;
+      --bg: #08080F;
+      --text: #F0EDE8;
+      --muted: rgba(240, 237, 232, 0.5);
+      --border: rgba(123, 104, 238, 0.15);
+      --card-bg: rgba(123, 104, 238, 0.04);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
-    .font-display { font-family: Georgia, 'Times New Roman', serif; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { opacity: 0.8; }
 
-    /* NAV */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 2rem; background: rgba(8,8,8,0.9); backdrop-filter: blur(12px);
+      padding: 1.1rem 2rem;
+      background: rgba(8, 8, 15, 0.95); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-    .nav-logo-mark { width: 32px; height: 32px; background: var(--cyan); display: flex; align-items: center; justify-content: center; }
-    .nav-logo-mark span { color: #000; font-weight: 900; font-size: 16px; font-family: Georgia, serif; }
-    .nav-logo-text { font-weight: 700; font-size: 1rem; letter-spacing: 0.05em; }
-    .nav-right { display: flex; align-items: center; gap: 1rem; }
-    .badge { background: var(--cyan); color: #000; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
-    .lang-toggle { background: transparent; border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.8rem; font-size: 0.75rem; cursor: pointer; letter-spacing: 0.1em; transition: all 0.2s; }
-    .lang-toggle:hover { border-color: var(--cyan); color: var(--cyan); }
+    .nav-logo { font-size: 1.15rem; font-weight: 600; letter-spacing: 0.02em; }
+    .nav-logo span { color: var(--accent); }
+    .lang-toggle { display: flex; gap: 0.5rem; }
+    .lang-btn { background: none; border: 1px solid var(--border); color: var(--muted); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s; }
+    .lang-btn.active, .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* HERO */
-    .hero {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(135deg, #050505 0%, #0a1a1a 50%, #050505 100%);
-      position: relative; overflow: hidden; padding: 8rem 2rem 4rem;
+    .hero { padding: clamp(4rem, 10vw, 7rem) 2rem; max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif; font-style: italic; font-weight: 900;
+      font-size: clamp(3.5rem, 10vw, 6.5rem); line-height: 1.05; margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text) 55%, var(--accent));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .hero::before {
-      content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(ellipse at 60% 40%, rgba(0,229,255,0.06) 0%, transparent 50%);
-    }
-    .hero-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-    .hero-label { color: var(--cyan); font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .hero-title { font-family: Georgia, serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; }
-    .hero-title em { color: var(--cyan); font-style: normal; }
-    .hero-tagline { color: #999; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .hero-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 3rem; }
-    .hero-price { display: inline-block; border: 1px solid var(--cyan); padding: 0.5rem 1.5rem; color: var(--cyan); font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem; font-family: Georgia, serif; }
-    .hero-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--cyan); color: #000; padding: 1rem 2.5rem; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-decoration: none; transition: background 0.2s; }
-    .hero-cta:hover { background: #fff; }
+    .hero-tagline { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 300; color: var(--muted); max-width: 580px; margin: 0 auto 2rem; }
+    .hero-pills { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .pill { padding: 0.45rem 1.1rem; border-radius: 30px; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; }
+    .pill-accent { background: var(--accent); color: #fff; }
+    .pill-outline { border: 1px solid var(--border); color: var(--text); }
+    .hero-link { font-size: 0.95rem; font-weight: 500; color: var(--accent); letter-spacing: 0.02em; }
 
-    /* SECTIONS */
-    .section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
-    .section-num { color: var(--cyan); font-size: 0.7rem; letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 700; }
-    .section-title { font-family: Georgia, serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1.5rem; }
-    .section-title em { color: var(--cyan); font-style: normal; }
-    .section-text { color: #999; max-width: 600px; line-height: 1.8; }
-    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    .opportunity { background: var(--card-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: clamp(3rem, 8vw, 5rem) 2rem; text-align: center; }
+    .opportunity-inner { max-width: 700px; margin: 0 auto; }
+    .opportunity h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: 1.2rem; }
+    .opportunity p { color: var(--muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .opportunity-conclusion { color: var(--text); font-weight: 600; font-size: 1.05rem; }
+    .opportunity-conclusion span { color: var(--accent); }
 
-    /* CARDS */
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); margin-top: 3rem; }
-    .card { background: var(--dark); padding: 2rem; }
-    .card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-    .card-title { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .card-text { color: #777; font-size: 0.9rem; line-height: 1.7; }
+    .section { padding: clamp(3rem, 8vw, 5rem) 2rem; max-width: 900px; margin: 0 auto; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; margin-bottom: 3rem; text-align: center; }
+    .built-list { display: flex; flex-direction: column; gap: 2.5rem; }
+    .built-item { display: flex; gap: 2rem; align-items: flex-start; }
+    .built-num { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: rgba(123, 104, 238, 0.12); line-height: 1; min-width: 80px; flex-shrink: 0; }
+    .built-content h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .built-content p { color: var(--muted); font-size: 0.95rem; }
 
-    /* FEATURES */
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; margin-top: 3rem; }
-    .feature { background: var(--dark); border: 1px solid var(--border); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; }
-    .feature-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .features-section { background: var(--card-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: clamp(3rem, 8vw, 5rem) 2rem; }
+    .features-inner { max-width: 900px; margin: 0 auto; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .feature-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.2rem; border: 1px solid var(--border); border-radius: 10px; background: rgba(123, 104, 238, 0.03); }
+    .feature-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .feature-text { font-size: 0.9rem; color: var(--muted); }
+    .feature-text strong { color: var(--text); display: block; margin-bottom: 0.2rem; font-weight: 500; }
 
-    /* PRICING */
-    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 3rem; }
-    .plan { background: var(--dark); border: 1px solid var(--border); padding: 2rem; position: relative; }
-    .plan.recommended { border-color: var(--cyan); }
-    .plan-badge { position: absolute; top: -1px; right: 1.5rem; background: var(--cyan); color: #000; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-    .plan-name { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-    .plan-price { font-family: Georgia, serif; font-size: 2rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
-    .plan.recommended .plan-price { color: var(--cyan); }
-    .plan-period { color: var(--muted); font-size: 0.8rem; margin-bottom: 1.5rem; }
-    .plan-features { list-style: none; space-y: 0.5rem; }
-    .plan-features li { color: #888; font-size: 0.85rem; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
-    .plan-features li:last-child { border-bottom: none; }
-    .plan-features li::before { content: '✓ '; color: var(--cyan); }
+    .pricing-section { padding: clamp(3rem, 8vw, 5rem) 2rem; max-width: 900px; margin: 0 auto; }
+    .pricing-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
+    .pricing-table th { text-align: left; padding: 0.8rem 1rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .pricing-table td { padding: 1rem 1rem; font-size: 0.92rem; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+    .pricing-table tr.highlight td { color: var(--text); background: rgba(123, 104, 238, 0.06); }
+    .pricing-table tr.highlight td:first-child { border-left: 2px solid var(--accent); }
+    .plan-name { font-weight: 600; color: var(--text); white-space: nowrap; }
+    .plan-price { font-weight: 600; color: var(--accent); white-space: nowrap; }
 
-    /* CTA */
-    .cta-section { background: var(--darker); border-top: 1px solid var(--border); padding: 5rem 2rem; text-align: center; }
-    .cta-inner { max-width: 700px; margin: 0 auto; }
-    .cta-title { font-family: Georgia, serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
-    .cta-text { color: #777; margin-bottom: 3rem; }
-    .cta-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
-    .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 1rem 2rem; font-weight: 700; text-decoration: none; transition: background 0.2s; }
-    .btn-whatsapp:hover { background: #1EBE5D; }
-    .btn-demo { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; border: 1px solid var(--cyan); color: var(--cyan); padding: 1rem 2rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
-    .btn-demo:hover { background: var(--cyan); color: #000; }
+    .cta-section { padding: clamp(4rem, 10vw, 7rem) 2rem; text-align: center; max-width: 700px; margin: 0 auto; }
+    .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-section p { color: var(--muted); font-size: 1.05rem; margin-bottom: 2.5rem; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-whatsapp { display: inline-flex; align-items: center; gap: 0.6rem; background: #25D366; color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; transition: opacity 0.2s; }
+    .btn-whatsapp:hover { opacity: 0.9; color: #fff; }
+    .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid var(--border); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 500; font-size: 1rem; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; transition: border-color 0.2s; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* FOOTER */
-    footer { background: var(--black); border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
 
-    @media (max-width: 640px) {
-      nav { padding: 1rem; }
-      .nav-right .badge { display: none; }
-    }
+    [dir="rtl"] .built-item { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .feature-item { flex-direction: row-reverse; text-align: right; }
+    [dir="rtl"] .pricing-table th, [dir="rtl"] .pricing-table td { text-align: right; }
+    [dir="rtl"] .pricing-table tr.highlight td:first-child { border-left: none; border-right: 2px solid var(--accent); }
+    @media (max-width: 600px) { .built-num { min-width: 55px; font-size: 3rem; } .pricing-table th:last-child, .pricing-table td:last-child { display: none; } nav { padding: 1rem 1.2rem; } }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <div class="nav-logo">
-      <div class="nav-logo-mark"><span>W</span></div>
-      <span class="nav-logo-text">Web Vanguard</span>
-    </div>
-    <div class="nav-right">
-      <span class="badge">Exclusive Proposal</span>
-      <button class="lang-toggle" onclick="toggleLang()" id="langBtn">عربي</button>
+    <div class="nav-logo">Web<span>Vanguard</span></div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">AR</button>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-label" data-en="Photography Studio · Dubai" data-ar="استوديو التصوير · دبي">Photography Studio · Dubai</p>
-      <h1 class="hero-title font-display">
-        <span data-en="Lumina Lens" data-ar="لومينا لنز">Lumina Lens</span><br/>
-        <em data-en="Studio" data-ar="استوديو">Studio</em>
-      </h1>
-      <p class="hero-tagline" data-en="Where Light Becomes Legacy" data-ar="حيث يصبح الضوء إرثاً">Where Light Becomes Legacy</p>
-      <p class="hero-meta">
-        <span data-en="Proposal prepared by Web Vanguard · March 2026" data-ar="مقترح مُعدّ من Web Vanguard · مارس 2026">Proposal prepared by Web Vanguard · March 2026</span>
-      </p>
-      <div class="hero-price">
-        <span data-en="Growth Plan — AED 4,500" data-ar="خطة النمو — 4,500 درهم">Growth Plan — AED 4,500</span>
-      </div>
-      <br/>
-      <a href="https://lumina-lens-six.vercel.app" target="_blank" class="hero-cta">
-        <span data-en="View Live Demo →" data-ar="عرض الموقع الحي →">View Live Demo →</span>
-      </a>
+    <p class="hero-label" data-key="hero-label">Exclusive Web Design Proposal · Dubai · March 2026</p>
+    <h1 data-key="hero-h1">Lumina<br>Lens Studio</h1>
+    <p class="hero-tagline" data-key="hero-tagline">Your photography deserves a portfolio that does justice to your work.</p>
+    <div class="hero-pills">
+      <span class="pill pill-accent" data-key="pill-plan">Growth Plan</span>
+      <span class="pill pill-outline">AED 4,500</span>
+    </div>
+    <a href="https://lumina-lens-six.vercel.app" target="_blank" class="hero-link" data-key="hero-link">View Live Website →</a>
+  </section>
+
+  <section class="opportunity">
+    <div class="opportunity-inner">
+      <h2 data-key="opp-title">Your clients are searching online right now.</h2>
+      <p data-key="opp-body">In Dubai's competitive photography market, clients make their choice online. If your portfolio isn't easy to find, beautifully presented, and mobile-friendly, you're losing bookings to photographers who are easier to discover.</p>
+      <p class="opportunity-conclusion" data-key="opp-conclusion">We built your website. <span>It's ready.</span></p>
     </div>
   </section>
 
-  <hr class="divider" />
-
-  <!-- 01 VISUAL CONCEPT -->
-  <div class="section">
-    <p class="section-num">01</p>
-    <h2 class="section-title font-display" data-en="Visual <em>Concept</em>" data-ar="المفهوم <em>البصري</em>">Visual <em>Concept</em></h2>
-    <p class="section-text" data-en="Deep black canvas meets electric cyan — a bold, editorial aesthetic that positions Lumina Lens as Dubai's most progressive photography studio. The monochromatic foundation lets the imagery breathe, while cyan accents add precision and technical authority. Typography: Playfair Display for gravitas, Inter for clarity." data-ar="لوحة سوداء عميقة تلتقي باللون السيان الكهربائي — جمالية جريئة تضع لومينا لنز كاستوديو التصوير الأكثر تقدماً في دبي. الأساس أحادي اللون يتيح للصور التنفس، بينما تضيف لمسات السيان الدقة والسلطة التقنية.">Deep black canvas meets electric cyan — a bold, editorial aesthetic that positions Lumina Lens as Dubai's most progressive photography studio. The monochromatic foundation lets the imagery breathe, while cyan accents add precision and technical authority. Typography: Playfair Display for gravitas, Inter for clarity.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🎨</div>
-        <div class="card-title" data-en="Colour Palette" data-ar="لوحة الألوان">Colour Palette</div>
-        <div class="card-text" data-en="Deep black #050505 · Electric Cyan #00E5FF · Pure White accents" data-ar="أسود عميق · سيان كهربائي · لمسات بيضاء">Deep black #050505 · Electric Cyan #00E5FF · Pure White accents</div>
+  <section class="section">
+    <h2 class="section-title" data-key="built-title">What We Built for You</h2>
+    <div class="built-list">
+      <div class="built-item">
+        <div class="built-num">01</div>
+        <div class="built-content">
+          <h3 data-key="b1-title">The Portfolio Hero</h3>
+          <p data-key="b1-body">A striking introduction that immediately showcases the quality and style of your work. The website itself becomes a statement of your craft — clients see you're serious before they scroll.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">✒️</div>
-        <div class="card-title" data-en="Typography" data-ar="الطباعة">Typography</div>
-        <div class="card-text" data-en="Playfair Display (display/headings) + Inter (body/UI). High contrast, editorial hierarchy." data-ar="بلايفير ديسبلاي للعناوين + إنتر للنصوص. تسلسل هرمي تحريري.">Playfair Display (display/headings) + Inter (body/UI). High contrast, editorial hierarchy.</div>
+      <div class="built-item">
+        <div class="built-num">02</div>
+        <div class="built-content">
+          <h3 data-key="b2-title">Services & Packages</h3>
+          <p data-key="b2-body">Editorial, luxury brand, lifestyle, and portrait packages presented with clear pricing in AED. No ambiguity, no back-and-forth — clients know exactly what they're getting.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <div class="card-title" data-en="Visual Energy" data-ar="الطاقة البصرية">Visual Energy</div>
-        <div class="card-text" data-en="Cinematic, dark, precise. Full-screen parallax hero, grid gallery, immersive scroll." data-ar="سينمائي، داكن، دقيق. بطل بانورامي، معرض شبكي، تمرير غامر.">Cinematic, dark, precise. Full-screen parallax hero, grid gallery, immersive scroll.</div>
+      <div class="built-item">
+        <div class="built-num">03</div>
+        <div class="built-content">
+          <h3 data-key="b3-title">The Studio Story</h3>
+          <p data-key="b3-body">Who you are, your approach, your clients. Build the personal connection that turns a browser into a booking. People book photographers they trust, not just portfolios they admire.</p>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- 02 STRUCTURE -->
-  <div class="section">
-    <p class="section-num">02</p>
-    <h2 class="section-title font-display" data-en="Website <em>Structure</em>" data-ar="هيكل <em>الموقع</em>">Website <em>Structure</em></h2>
-    <p class="section-text" data-en="Six precision-crafted sections, each optimised for conversion and brand impact." data-ar="ست أقسام مصممة بدقة، كل منها محسّن للتحويل وتأثير العلامة التجارية.">Six precision-crafted sections, each optimised for conversion and brand impact.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🎬</div>
-        <div class="card-title" data-en="Hero" data-ar="الصفحة الرئيسية">Hero</div>
-        <div class="card-text" data-en="Full-screen parallax with cinematic photography. Bold headline, two CTAs, live stats bar." data-ar="كامل الشاشة مع تصوير سينمائي. عنوان رئيسي جريء، دعوتان للعمل، شريط إحصائيات.">Full-screen parallax with cinematic photography. Bold headline, two CTAs, live stats bar.</div>
+      <div class="built-item">
+        <div class="built-num">04</div>
+        <div class="built-content">
+          <h3 data-key="b4-title">The Gallery</h3>
+          <p data-key="b4-body">Your best work, curated and beautifully displayed. This is what convinces people to choose you over every other photographer in Dubai. Let your images do the selling.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon">📸</div>
-        <div class="card-title" data-en="Services & Pricing" data-ar="الخدمات والأسعار">Services & Pricing</div>
-        <div class="card-text" data-en="6 services with AED pricing. Editorial, Brand, Lifestyle, Events, Real Estate, Retouching." data-ar="6 خدمات مع أسعار بالدرهم. تحريري، علامة تجارية، أسلوب حياة، فعاليات، عقارات، تعديل.">6 services with AED pricing. Editorial, Brand, Lifestyle, Events, Real Estate, Retouching.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏛️</div>
-        <div class="card-title" data-en="About & Gallery" data-ar="نبذة ومعرض">About & Gallery</div>
-        <div class="card-text" data-en="Studio story, team stats, and a 6-image editorial gallery with hover effects." data-ar="قصة الاستوديو، إحصائيات الفريق، ومعرض من 6 صور مع تأثيرات التمرير.">Studio story, team stats, and a 6-image editorial gallery with hover effects.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">⭐</div>
-        <div class="card-title" data-en="Testimonials" data-ar="الشهادات">Testimonials</div>
-        <div class="card-text" data-en="4 authentic client testimonials from luxury brands, property developers, and fashion houses." data-ar="4 شهادات حقيقية من العلامات التجارية الفاخرة ومطوري العقارات ودور الأزياء.">4 authentic client testimonials from luxury brands, property developers, and fashion houses.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">📩</div>
-        <div class="card-title" data-en="Contact & Booking" data-ar="التواصل والحجز">Contact & Booking</div>
-        <div class="card-text" data-en="Formspree-powered enquiry form with service selector, budget range, and project brief fields." data-ar="نموذج استفسار مدعوم بـ Formspree مع محدد الخدمة ونطاق الميزانية وحقول الملخص.">Formspree-powered enquiry form with service selector, budget range, and project brief fields.</div>
+      <div class="built-item">
+        <div class="built-num">05</div>
+        <div class="built-content">
+          <h3 data-key="b5-title">Book a Session</h3>
+          <p data-key="b5-body">An enquiry form, WhatsApp for quick questions, and your studio location. Make it effortless to start a project with you — remove every barrier between them and booking.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <hr class="divider" />
-
-  <!-- 03 TECH -->
-  <div class="section">
-    <p class="section-num">03</p>
-    <h2 class="section-title font-display" data-en="Technical <em>Stack</em>" data-ar="المكدس <em>التقني</em>">Technical <em>Stack</em></h2>
-    <p class="section-text" data-en="Built with the same technology stack used by world-class tech companies. Performance-first, SEO-optimised, and infinitely scalable." data-ar="مبني بنفس مكدس التقنيات المستخدم من قبل شركات التكنولوجيا العالمية. الأداء أولاً، محسّن لمحركات البحث.">Built with the same technology stack used by world-class tech companies. Performance-first, SEO-optimised, and infinitely scalable.</p>
-    <div class="features">
-      <div class="feature"><span class="feature-icon">⚛️</span> <span data-en="Next.js 14 (React framework)" data-ar="Next.js 14 (إطار React)">Next.js 14 (React framework)</span></div>
-      <div class="feature"><span class="feature-icon">🎨</span> <span data-en="Tailwind CSS (utility styling)" data-ar="Tailwind CSS">Tailwind CSS (utility styling)</span></div>
-      <div class="feature"><span class="feature-icon">📘</span> <span data-en="TypeScript (type-safe code)" data-ar="TypeScript">TypeScript (type-safe code)</span></div>
-      <div class="feature"><span class="feature-icon">✨</span> <span data-en="Framer Motion (animations)" data-ar="Framer Motion (رسوم متحركة)">Framer Motion (animations)</span></div>
-      <div class="feature"><span class="feature-icon">🚀</span> <span data-en="Vercel deployment (global CDN)" data-ar="نشر Vercel (CDN عالمي)">Vercel deployment (global CDN)</span></div>
-      <div class="feature"><span class="feature-icon">📊</span> <span data-en="Google Analytics 4 (GA4)" data-ar="Google Analytics 4">Google Analytics 4 (GA4)</span></div>
-      <div class="feature"><span class="feature-icon">🔍</span> <span data-en="Full SEO (schema, OG, sitemap)" data-ar="SEO كامل (مخطط، OG، خريطة الموقع)">Full SEO (schema, OG, sitemap)</span></div>
-      <div class="feature"><span class="feature-icon">💬</span> <span data-en="WhatsApp floating CTA" data-ar="زر واتساب عائم">WhatsApp floating CTA</span></div>
-      <div class="feature"><span class="feature-icon">📧</span> <span data-en="Formspree contact form" data-ar="نموذج تواصل Formspree">Formspree contact form</span></div>
-      <div class="feature"><span class="feature-icon">📱</span> <span data-en="Mobile-first responsive design" data-ar="تصميم متجاوب أولاً للهاتف">Mobile-first responsive design</span></div>
-    </div>
-  </div>
-
-  <hr class="divider" />
-
-  <!-- 04 SEO -->
-  <div class="section">
-    <p class="section-num">04</p>
-    <h2 class="section-title font-display" data-en="SEO & <em>Performance</em>" data-ar="SEO و<em>الأداء</em>">SEO & <em>Performance</em></h2>
-    <p class="section-text" data-en="Engineered to rank. Every technical SEO signal optimised for Dubai and UAE search markets." data-ar="مصمم للترتيب. كل إشارة SEO تقنية محسّنة لأسواق البحث في دبي والإمارات.">Engineered to rank. Every technical SEO signal optimised for Dubai and UAE search markets.</p>
-    <div class="cards" style="margin-top: 2rem;">
-      <div class="card">
-        <div class="card-title" data-en="Target Keywords" data-ar="الكلمات المفتاحية المستهدفة">Target Keywords</div>
-        <div class="card-text" data-en="photography studio Dubai · luxury photographer UAE · editorial photography D3 · brand photographer Dubai" data-ar="استوديو تصوير دبي · مصور فاخر الإمارات · تصوير تحريري D3">photography studio Dubai · luxury photographer UAE · editorial photography D3 · brand photographer Dubai</div>
-      </div>
-      <div class="card">
-        <div class="card-title" data-en="Schema.org" data-ar="Schema.org">Schema.org</div>
-        <div class="card-text" data-en="LocalBusiness structured data with geo-coordinates, opening hours, price range, and service area." data-ar="بيانات LocalBusiness المنظمة مع الإحداثيات الجغرافية وساعات العمل ونطاق الأسعار.">LocalBusiness structured data with geo-coordinates, opening hours, price range, and service area.</div>
-      </div>
-      <div class="card">
-        <div class="card-title" data-en="Files Delivered" data-ar="الملفات المسلّمة">Files Delivered</div>
-        <div class="card-text" data-en="robots.txt · sitemap.xml · llms.txt · Open Graph meta · Twitter cards" data-ar="robots.txt · sitemap.xml · llms.txt · Open Graph meta · بطاقات تويتر">robots.txt · sitemap.xml · llms.txt · Open Graph meta · Twitter cards</div>
+  <section class="features-section">
+    <div class="features-inner">
+      <h2 class="section-title" data-key="features-title">Everything Included</h2>
+      <div class="features-grid">
+        <div class="feature-item"><div class="feature-icon">📱</div><div class="feature-text"><strong data-key="f1-title">Works on every device</strong><span data-key="f1-body">Phone, tablet, desktop — flawless on all screens.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🔍</div><div class="feature-text"><strong data-key="f2-title">Shows up on Google</strong><span data-key="f2-body">When clients search for photographers in Dubai, you're discoverable.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">💬</div><div class="feature-text"><strong data-key="f3-title">WhatsApp button</strong><span data-key="f3-body">Clients reach you in one tap — quick questions, fast bookings.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">📧</div><div class="feature-text"><strong data-key="f4-title">Enquiry form</strong><span data-key="f4-body">Project inquiries go straight to your inbox, ready to discuss.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">📊</div><div class="feature-text"><strong data-key="f5-title">Visitor tracking</strong><span data-key="f5-body">Know exactly how many potential clients find you online every day.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🤖</div><div class="feature-text"><strong data-key="f6-title">AI search ready</strong><span data-key="f6-body">Visible on ChatGPT, Google AI, and Perplexity recommendations.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">⚡</div><div class="feature-text"><strong data-key="f7-title">Loads in under 2 seconds</strong><span data-key="f7-body">Fast on any connection — your images load instantly and beautifully.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🗺️</div><div class="feature-text"><strong data-key="f8-title">Google Maps</strong><span data-key="f8-body">Your studio location, one click away from any device.</span></div></div>
+        <div class="feature-item"><div class="feature-icon">🌐</div><div class="feature-text"><strong data-key="f9-title">Multi-language ready</strong><span data-key="f9-body">Arabic, French, Russian available on request.</span></div></div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <hr class="divider" />
+  <section class="pricing-section">
+    <h2 class="section-title" data-key="pricing-title">Your Investment</h2>
+    <table class="pricing-table">
+      <thead><tr><th data-key="th-plan">Plan</th><th data-key="th-price">Price</th><th data-key="th-includes">What you get</th></tr></thead>
+      <tbody>
+        <tr><td><span class="plan-name" data-key="p1-name">Starter</span></td><td><span class="plan-price">AED 1,500</span></td><td data-key="p1-desc">Single-page website, WhatsApp button, Google-ready, mobile-friendly</td></tr>
+        <tr><td><span class="plan-name" data-key="p2-name">Launch</span></td><td><span class="plan-price">AED 2,500</span></td><td data-key="p2-desc">Full website, enquiry form, WhatsApp, Google-ready, visitor tracking</td></tr>
+        <tr class="highlight"><td><span class="plan-name" data-key="p3-name">Growth ⭐</span></td><td><span class="plan-price">AED 4,500</span></td><td data-key="p3-desc">Everything in Launch + 3 months of updates and support + AI search optimisation</td></tr>
+        <tr><td><span class="plan-name" data-key="p4-name">Premium</span></td><td><span class="plan-price">AED 8,000+</span></td><td data-key="p4-desc">Everything in Growth + Google advertising setup + monthly performance reports</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-  <!-- 05 PRICING -->
-  <div class="section">
-    <p class="section-num">05</p>
-    <h2 class="section-title font-display" data-en="Investment <em>Plans</em>" data-ar="خطط <em>الاستثمار</em>">Investment <em>Plans</em></h2>
-    <p class="section-text" data-en="Transparent, fixed pricing. No surprises. All plans include domain setup and 30 days of post-launch support." data-ar="أسعار شفافة وثابتة. لا مفاجآت. جميع الخطط تشمل إعداد النطاق و30 يومًا من الدعم.">Transparent, fixed pricing. No surprises. All plans include domain setup and 30 days of post-launch support.</p>
-    <div class="pricing">
-      <div class="plan">
-        <p class="plan-name" data-en="Starter" data-ar="المبتدئ">Starter</p>
-        <p class="plan-price">AED 1,500</p>
-        <p class="plan-period" data-en="one-time" data-ar="دفعة واحدة">one-time</p>
-        <ul class="plan-features">
-          <li data-en="5-page website" data-ar="موقع 5 صفحات">5-page website</li>
-          <li data-en="Mobile responsive" data-ar="متجاوب مع الهاتف">Mobile responsive</li>
-          <li data-en="Contact form" data-ar="نموذج تواصل">Contact form</li>
-          <li data-en="Basic SEO" data-ar="SEO أساسي">Basic SEO</li>
-        </ul>
-      </div>
-      <div class="plan">
-        <p class="plan-name" data-en="Launch" data-ar="الإطلاق">Launch</p>
-        <p class="plan-price">AED 2,500</p>
-        <p class="plan-period" data-en="one-time" data-ar="دفعة واحدة">one-time</p>
-        <ul class="plan-features">
-          <li data-en="Full website (all sections)" data-ar="موقع كامل (جميع الأقسام)">Full website (all sections)</li>
-          <li data-en="Animations & interactions" data-ar="رسوم متحركة وتفاعلات">Animations & interactions</li>
-          <li data-en="WhatsApp button" data-ar="زر واتساب">WhatsApp button</li>
-          <li data-en="Standard SEO" data-ar="SEO قياسي">Standard SEO</li>
-          <li data-en="GA4 integration" data-ar="تكامل GA4">GA4 integration</li>
-        </ul>
-      </div>
-      <div class="plan recommended">
-        <span class="plan-badge" data-en="Recommended" data-ar="موصى به">Recommended</span>
-        <p class="plan-name" data-en="Growth" data-ar="النمو">Growth</p>
-        <p class="plan-price">AED 4,500</p>
-        <p class="plan-period" data-en="one-time" data-ar="دفعة واحدة">one-time</p>
-        <ul class="plan-features">
-          <li data-en="Everything in Launch" data-ar="كل شيء في خطة الإطلاق">Everything in Launch</li>
-          <li data-en="Advanced animations" data-ar="رسوم متحركة متقدمة">Advanced animations</li>
-          <li data-en="Gallery & portfolio" data-ar="معرض وبورتفوليو">Gallery & portfolio</li>
-          <li data-en="Schema.org markup" data-ar="ترميز Schema.org">Schema.org markup</li>
-          <li data-en="Performance optimisation" data-ar="تحسين الأداء">Performance optimisation</li>
-          <li data-en="3-month maintenance" data-ar="صيانة 3 أشهر">3-month maintenance</li>
-        </ul>
-      </div>
-      <div class="plan">
-        <p class="plan-name" data-en="Premium" data-ar="المميز">Premium</p>
-        <p class="plan-price">AED 8,000<span style="font-size:1rem">+</span></p>
-        <p class="plan-period" data-en="custom project" data-ar="مشروع مخصص">custom project</p>
-        <ul class="plan-features">
-          <li data-en="Bespoke design system" data-ar="نظام تصميم مخصص">Bespoke design system</li>
-          <li data-en="CMS integration" data-ar="تكامل CMS">CMS integration</li>
-          <li data-en="E-commerce ready" data-ar="جاهز للتجارة الإلكترونية">E-commerce ready</li>
-          <li data-en="Multi-language (AR/EN)" data-ar="متعدد اللغات (عربي/إنجليزي)">Multi-language (AR/EN)</li>
-          <li data-en="12-month retainer" data-ar="احتفاظ 12 شهرًا">12-month retainer</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
   <section class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title font-display" data-en="Ready to Elevate <em style='color:var(--cyan)'>Lumina Lens?</em>" data-ar="مستعد للارتقاء بـ <em style='color:var(--cyan)'>لومينا لنز؟</em>">Ready to Elevate <em style="color:var(--cyan)">Lumina Lens?</em></h2>
-      <p class="cta-text" data-en="Get in touch today. We'll kickstart your project within 48 hours of your approval." data-ar="تواصل معنا اليوم. سنبدأ مشروعك خلال 48 ساعة من موافقتك.">Get in touch today. We'll kickstart your project within 48 hours of your approval.</p>
-      <div class="cta-buttons">
-        <a href="https://wa.me/971500000000?text=Hello%20Web%20Vanguard%2C%20I%20am%20interested%20in%20the%20Lumina%20Lens%20proposal." target="_blank" class="btn-whatsapp">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <span data-en="WhatsApp Us" data-ar="تواصل عبر واتساب">WhatsApp Us</span>
-        </a>
-        <a href="https://lumina-lens-six.vercel.app" target="_blank" class="btn-demo">
-          <span data-en="View Live Demo →" data-ar="عرض الموقع الحي →">View Live Demo →</span>
-        </a>
-      </div>
+    <h2 data-key="cta-h2">Ready to get more clients?</h2>
+    <p data-key="cta-sub">Your website is ready. Let's put your name on it.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/971500000000?text=Hi%20Lumina%20Lens%2C%20I%20saw%20your%20web%20proposal%20and%20I%27m%20interested" target="_blank" class="btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-key="btn-wa">Chat on WhatsApp</span>
+      </a>
+      <a href="https://lumina-lens-six.vercel.app" target="_blank" class="btn-secondary"><span data-key="btn-demo">View Live Website →</span></a>
     </div>
   </section>
 
-  <footer>
-    <p>© 2026 Web Vanguard — AI-Powered Web Design Agency, Dubai, UAE</p>
-  </footer>
+  <footer><p>© 2026 Web Vanguard · Dubai · <a href="mailto:hello@webvanguard.ai">hello@webvanguard.ai</a></p></footer>
 
   <script>
-    let isAr = false;
-    function toggleLang() {
-      isAr = !isAr;
-      document.getElementById('langBtn').textContent = isAr ? 'EN' : 'عربي';
-      document.documentElement.dir = isAr ? 'rtl' : 'ltr';
-      document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-        el.innerHTML = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    const translations = {
+      en: {
+        "hero-label": "Exclusive Web Design Proposal · Dubai · March 2026",
+        "hero-h1": "Lumina\nLens Studio",
+        "hero-tagline": "Your photography deserves a portfolio that does justice to your work.",
+        "pill-plan": "Growth Plan", "hero-link": "View Live Website →",
+        "opp-title": "Your clients are searching online right now.",
+        "opp-body": "In Dubai's competitive photography market, clients make their choice online. If your portfolio isn't easy to find, beautifully presented, and mobile-friendly, you're losing bookings to photographers who are easier to discover.",
+        "opp-conclusion": "We built your website. It's ready.",
+        "built-title": "What We Built for You",
+        "b1-title": "The Portfolio Hero", "b1-body": "A striking introduction that immediately showcases the quality and style of your work. The website itself becomes a statement of your craft — clients see you're serious before they scroll.",
+        "b2-title": "Services & Packages", "b2-body": "Editorial, luxury brand, lifestyle, and portrait packages presented with clear pricing in AED. No ambiguity, no back-and-forth — clients know exactly what they're getting.",
+        "b3-title": "The Studio Story", "b3-body": "Who you are, your approach, your clients. Build the personal connection that turns a browser into a booking. People book photographers they trust, not just portfolios they admire.",
+        "b4-title": "The Gallery", "b4-body": "Your best work, curated and beautifully displayed. This is what convinces people to choose you over every other photographer in Dubai. Let your images do the selling.",
+        "b5-title": "Book a Session", "b5-body": "An enquiry form, WhatsApp for quick questions, and your studio location. Make it effortless to start a project with you — remove every barrier between them and booking.",
+        "features-title": "Everything Included",
+        "f1-title": "Works on every device", "f1-body": "Phone, tablet, desktop — flawless on all screens.",
+        "f2-title": "Shows up on Google", "f2-body": "When clients search for photographers in Dubai, you're discoverable.",
+        "f3-title": "WhatsApp button", "f3-body": "Clients reach you in one tap — quick questions, fast bookings.",
+        "f4-title": "Enquiry form", "f4-body": "Project inquiries go straight to your inbox, ready to discuss.",
+        "f5-title": "Visitor tracking", "f5-body": "Know exactly how many potential clients find you online every day.",
+        "f6-title": "AI search ready", "f6-body": "Visible on ChatGPT, Google AI, and Perplexity recommendations.",
+        "f7-title": "Loads in under 2 seconds", "f7-body": "Fast on any connection — your images load instantly and beautifully.",
+        "f8-title": "Google Maps", "f8-body": "Your studio location, one click away from any device.",
+        "f9-title": "Multi-language ready", "f9-body": "Arabic, French, Russian available on request.",
+        "pricing-title": "Your Investment",
+        "th-plan": "Plan", "th-price": "Price", "th-includes": "What you get",
+        "p1-name": "Starter", "p1-desc": "Single-page website, WhatsApp button, Google-ready, mobile-friendly",
+        "p2-name": "Launch", "p2-desc": "Full website, enquiry form, WhatsApp, Google-ready, visitor tracking",
+        "p3-name": "Growth ⭐", "p3-desc": "Everything in Launch + 3 months of updates and support + AI search optimisation",
+        "p4-name": "Premium", "p4-desc": "Everything in Growth + Google advertising setup + monthly performance reports",
+        "cta-h2": "Ready to get more clients?", "cta-sub": "Your website is ready. Let's put your name on it.",
+        "btn-wa": "Chat on WhatsApp", "btn-demo": "View Live Website →"
+      },
+      ar: {
+        "hero-label": "عرض تصميم ويب حصري · دبي · مارس 2026",
+        "hero-h1": "لوميناlenزstudio",
+        "hero-tagline": "تصويركم يستحق محفظة تليق به.",
+        "pill-plan": "خطة النمو", "hero-link": "عرض الموقع المباشر ←",
+        "opp-title": "عملاؤكم يبحثون على الإنترنت الآن.",
+        "opp-body": "في سوق التصوير التنافسي في دبي، يتخذ العملاء قراراتهم على الإنترنت. إذا لم تكن محفظتكم سهلة البحث والعثور عليها وجميلة المظهر، فأنتم تخسرون الحجوزات أمام المصورين الأسهل اكتشافاً.",
+        "opp-conclusion": "قمنا ببناء موقعكم. إنه جاهز.",
+        "built-title": "ما قمنا ببنائه لكم",
+        "b1-title": "بطل المحفظة", "b1-body": "مقدمة مؤثرة تعرض فوراً جودة وأسلوب عملكم. الموقع نفسه يصبح بياناً عن حرفتكم.",
+        "b2-title": "الخدمات والحزم", "b2-body": "حزم الأسلوب الحر والعلامات التجارية الفاخرة والحياة والصور الشخصية مع أسعار واضحة بالدرهم.",
+        "b3-title": "قصة الاستوديو", "b3-body": "من أنتم وأسلوبكم وعملاؤكم. بناء الاتصال الشخصي الذي يحوّل الزائر إلى حجز.",
+        "b4-title": "المعرض", "b4-body": "أفضل أعمالكم، منسقة وجميلة المظهر. هذا ما يقنع الناس باختياركم على كل مصور آخر في دبي.",
+        "b5-title": "احجز جلسة", "b5-body": "نموذج استفسار، واتساب للأسئلة السريعة، وموقع استوديوكم. سهّلوا كل شيء.",
+        "features-title": "كل شيء مشمول",
+        "f1-title": "يعمل على كل الأجهزة", "f1-body": "هاتف، تابلت، كمبيوتر — مثالي على جميع الشاشات.",
+        "f2-title": "يظهر على جوجل", "f2-body": "عندما يبحث العملاء عن مصورين في دبي، تظهرون.",
+        "f3-title": "زر واتساب", "f3-body": "العملاء يتواصلون معكم بنقرة — أسئلة سريعة وحجوزات.",
+        "f4-title": "نموذج استفسار", "f4-body": "استفسارات المشاريع تصل إلى بريدكم.",
+        "f5-title": "تتبع الزوار", "f5-body": "اعرفوا كم عميلاً محتملاً يجدكم يومياً.",
+        "f6-title": "جاهز للبحث بالذكاء الاصطناعي", "f6-body": "ظاهر على ChatGPT وGoogle AI وPerplexity.",
+        "f7-title": "يُحمَّل في أقل من ثانيتين", "f7-body": "سريع، صورك تُحمَّل بجمال.",
+        "f8-title": "خرائط جوجل", "f8-body": "موقع استوديوكم بنقرة واحدة.",
+        "f9-title": "جاهز للتعدد اللغوي", "f9-body": "العربية والفرنسية والروسية متاحة عند الطلب.",
+        "pricing-title": "استثماركم",
+        "th-plan": "الخطة", "th-price": "السعر", "th-includes": "ما تحصل عليه",
+        "p1-name": "المبتدئ", "p1-desc": "موقع صفحة واحدة، زر واتساب، جاهز لجوجل، متوافق مع الجوال",
+        "p2-name": "الإطلاق", "p2-desc": "موقع كامل، نموذج استفسار، واتساب، جاهز لجوجل، تتبع الزوار",
+        "p3-name": "النمو ⭐", "p3-desc": "كل شيء في خطة الإطلاق + 3 أشهر تحديثات ودعم + تحسين البحث بالذكاء الاصطناعي",
+        "p4-name": "بريميوم", "p4-desc": "كل شيء في النمو + إعداد إعلانات جوجل + تقارير أداء شهرية",
+        "cta-h2": "مستعدون للحصول على المزيد من العملاء؟", "cta-sub": "موقعكم جاهز. لنضع اسمكم عليه.",
+        "btn-wa": "تحدّث عبر واتساب", "btn-demo": "عرض الموقع المباشر ←"
+      }
+    };
+    function setLang(lang) {
+      document.querySelectorAll('[data-key]').forEach(el => {
+        if (translations[lang][el.dataset.key] !== undefined) el.textContent = translations[lang][el.dataset.key];
       });
+      document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
     }
   </script>
 </body>
